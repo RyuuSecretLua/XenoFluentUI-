@@ -79,7 +79,7 @@ function XenoFluentUI.new(config)
 	self.Tabs = {}
 	self.ActiveTab = nil
 	self.Title = config.Title or "XenoFluentUI"
-	self.Size = config.Size or UDim2.new(0, 640, 0, 460)
+	self.Size = config.Size or UDim2.new(0, 520, 0, 380)
 
 	local ScreenGui = Create("ScreenGui", {
 		Name = "XenoFluentUI",
@@ -100,7 +100,7 @@ function XenoFluentUI.new(config)
 	local Main = Create("Frame", {
 		Name = "Main",
 		Size = self.Size,
-		Position = UDim2.new(0.5, -320, 0.5, -230),
+		Position = UDim2.new(0.5, -260, 0.5, -190),
 		BackgroundColor3 = T.Black,
 		BackgroundTransparency = 0,
 		BorderSizePixel = 0,
@@ -121,7 +121,7 @@ function XenoFluentUI.new(config)
 
 	local Sidebar = Create("Frame", {
 		Name = "Sidebar",
-		Size = UDim2.new(0, 148, 1, 0),
+		Size = UDim2.new(0, 130, 1, 0),
 		BackgroundColor3 = T.Dark1,
 		BackgroundTransparency = 0.45,
 		BorderSizePixel = 0,
@@ -130,15 +130,15 @@ function XenoFluentUI.new(config)
 	})
 
 	local SideHeader = Create("Frame", {
-		Size = UDim2.new(1, 0, 0, 56),
+		Size = UDim2.new(1, 0, 0, 52),
 		BackgroundTransparency = 1,
 		ZIndex = 3,
 		Parent = Sidebar
 	})
 
 	local IconFrame = Create("ImageLabel", {
-		Size = UDim2.new(0, 26, 0, 26),
-		Position = UDim2.new(0, 12, 0, 15),
+		Size = UDim2.new(0, 24, 0, 24),
+		Position = UDim2.new(0, 10, 0, 14),
 		BackgroundColor3 = T.Dark4,
 		BackgroundTransparency = 0,
 		Image = "https://www.roblox.com/headshot-thumbnail/image?userId=" .. Player.UserId .. "&width=420&height=420&format=png",
@@ -146,15 +146,15 @@ function XenoFluentUI.new(config)
 		ZIndex = 4,
 		Parent = SideHeader
 	})
-	Create("UICorner", { CornerRadius = UDim.new(0, 6), Parent = IconFrame })
+	Create("UICorner", { CornerRadius = UDim.new(0, 5), Parent = IconFrame })
 
 	local DisplayNameLabel = Create("TextLabel", {
-		Size = UDim2.new(1, -46, 0, 16),
-		Position = UDim2.new(0, 44, 0, 11),
+		Size = UDim2.new(1, -42, 0, 15),
+		Position = UDim2.new(0, 40, 0, 10),
 		BackgroundTransparency = 1,
 		Text = Player.DisplayName,
 		Font = Enum.Font.GothamBold,
-		TextSize = 12,
+		TextSize = 11,
 		TextColor3 = T.White,
 		TextXAlignment = Enum.TextXAlignment.Left,
 		ZIndex = 4,
@@ -162,12 +162,12 @@ function XenoFluentUI.new(config)
 	})
 
 	local UserNameLabel = Create("TextLabel", {
-		Size = UDim2.new(1, -46, 0, 12),
-		Position = UDim2.new(0, 44, 0, 28),
+		Size = UDim2.new(1, -42, 0, 11),
+		Position = UDim2.new(0, 40, 0, 26),
 		BackgroundTransparency = 1,
-		Text = "@" .. Player.Name,
+		Text = "" .. Player.Name,
 		Font = Enum.Font.Gotham,
-		TextSize = 10,
+		TextSize = 9,
 		TextColor3 = T.WhiteFade,
 		TextXAlignment = Enum.TextXAlignment.Left,
 		ZIndex = 4,
@@ -176,8 +176,8 @@ function XenoFluentUI.new(config)
 
 	local TabList = Create("ScrollingFrame", {
 		Name = "TabList",
-		Size = UDim2.new(1, 0, 1, -110),
-		Position = UDim2.new(0, 0, 0, 60),
+		Size = UDim2.new(1, 0, 1, -100),
+		Position = UDim2.new(0, 0, 0, 55),
 		BackgroundTransparency = 1,
 		BorderSizePixel = 0,
 		ScrollBarThickness = 0,
@@ -186,23 +186,23 @@ function XenoFluentUI.new(config)
 		ZIndex = 3,
 		Parent = Sidebar
 	})
-	Create("UIPadding", { PaddingTop = UDim.new(0, 3), PaddingLeft = UDim.new(0, 7), PaddingRight = UDim.new(0, 7), Parent = TabList })
+	Create("UIPadding", { PaddingTop = UDim.new(0, 3), PaddingLeft = UDim.new(0, 6), PaddingRight = UDim.new(0, 6), Parent = TabList })
 	local TabLL = Create("UIListLayout", { SortOrder = Enum.SortOrder.LayoutOrder, Padding = UDim.new(0, 2), Parent = TabList })
 	self.TabList = TabList
 	self.TabLL = TabLL
 
 	local SideFooter = Create("Frame", {
-		Size = UDim2.new(1, 0, 0, 44),
-		Position = UDim2.new(0, 0, 1, -48),
+		Size = UDim2.new(1, 0, 0, 40),
+		Position = UDim2.new(0, 0, 1, -44),
 		BackgroundTransparency = 1,
 		BorderSizePixel = 0,
 		ZIndex = 3,
 		Parent = Sidebar
 	})
-	Create("UIPadding", { PaddingLeft = UDim.new(0, 7), PaddingRight = UDim.new(0, 7), Parent = SideFooter })
+	Create("UIPadding", { PaddingLeft = UDim.new(0, 6), PaddingRight = UDim.new(0, 6), Parent = SideFooter })
 
 	local SettingBtn = Create("TextButton", {
-		Size = UDim2.new(1, 0, 0, 32),
+		Size = UDim2.new(1, 0, 0, 28),
 		Position = UDim2.new(0, 0, 0, 6),
 		BackgroundColor3 = T.Dark3,
 		BackgroundTransparency = 1,
@@ -213,12 +213,12 @@ function XenoFluentUI.new(config)
 	})
 	Create("UICorner", { CornerRadius = UDim.new(0, 6), Parent = SettingBtn })
 	local SettingBtnLabel = Create("TextLabel", {
-		Size = UDim2.new(1, -12, 1, 0),
-		Position = UDim2.new(0, 12, 0, 0),
+		Size = UDim2.new(1, -10, 1, 0),
+		Position = UDim2.new(0, 10, 0, 0),
 		BackgroundTransparency = 1,
-		Text = "⚙ Settings",
+		Text = "Settings",
 		Font = Enum.Font.GothamSemibold,
-		TextSize = 12,
+		TextSize = 11,
 		TextColor3 = T.WhiteFade,
 		TextXAlignment = Enum.TextXAlignment.Left,
 		ZIndex = 5,
@@ -227,8 +227,8 @@ function XenoFluentUI.new(config)
 
 	local ContentArea = Create("Frame", {
 		Name = "ContentArea",
-		Size = UDim2.new(1, -148, 1, 0),
-		Position = UDim2.new(0, 148, 0, 0),
+		Size = UDim2.new(1, -130, 1, 0),
+		Position = UDim2.new(0, 130, 0, 0),
 		BackgroundTransparency = 1,
 		BorderSizePixel = 0,
 		ZIndex = 2,
@@ -237,7 +237,7 @@ function XenoFluentUI.new(config)
 	self.ContentArea = ContentArea
 
 	local ContentHeader = Create("Frame", {
-		Size = UDim2.new(1, 0, 0, 56),
+		Size = UDim2.new(1, 0, 0, 44),
 		BackgroundColor3 = T.Dark1,
 		BackgroundTransparency = 0.45,
 		BorderSizePixel = 0,
@@ -246,26 +246,13 @@ function XenoFluentUI.new(config)
 	})
 
 	self.PageTitle = Create("TextLabel", {
-		Size = UDim2.new(1, -20, 0, 20),
-		Position = UDim2.new(0, 14, 0, 8),
+		Size = UDim2.new(1, -16, 1, 0),
+		Position = UDim2.new(0, 12, 0, 0),
 		BackgroundTransparency = 1,
 		Text = self.Title,
 		Font = Enum.Font.GothamBold,
-		TextSize = 14,
+		TextSize = 13,
 		TextColor3 = T.White,
-		TextXAlignment = Enum.TextXAlignment.Left,
-		ZIndex = 4,
-		Parent = ContentHeader
-	})
-
-	Create("TextLabel", {
-		Size = UDim2.new(1, -20, 0, 14),
-		Position = UDim2.new(0, 14, 0, 32),
-		BackgroundTransparency = 1,
-		Text = "⬡ " .. GAME_NAME,
-		Font = Enum.Font.Gotham,
-		TextSize = 10,
-		TextColor3 = T.WhiteFade,
 		TextXAlignment = Enum.TextXAlignment.Left,
 		ZIndex = 4,
 		Parent = ContentHeader
@@ -273,8 +260,8 @@ function XenoFluentUI.new(config)
 
 	local SettingsPage = Create("ScrollingFrame", {
 		Name = "Page_Settings",
-		Size = UDim2.new(1, 0, 1, -58),
-		Position = UDim2.new(0, 0, 0, 58),
+		Size = UDim2.new(1, 0, 1, -46),
+		Position = UDim2.new(0, 0, 0, 46),
 		BackgroundTransparency = 1,
 		BorderSizePixel = 0,
 		ScrollBarThickness = 2,
@@ -285,33 +272,33 @@ function XenoFluentUI.new(config)
 		ZIndex = 3,
 		Parent = ContentArea
 	})
-	Create("UIPadding", { PaddingLeft = UDim.new(0, 12), PaddingRight = UDim.new(0, 12), PaddingTop = UDim.new(0, 10), PaddingBottom = UDim.new(0, 12), Parent = SettingsPage })
+	Create("UIPadding", { PaddingLeft = UDim.new(0, 10), PaddingRight = UDim.new(0, 10), PaddingTop = UDim.new(0, 8), PaddingBottom = UDim.new(0, 10), Parent = SettingsPage })
 	local SLL = Create("UIListLayout", { SortOrder = Enum.SortOrder.LayoutOrder, Padding = UDim.new(0, 0), Parent = SettingsPage })
 	SLL:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
-		SettingsPage.CanvasSize = UDim2.new(0, 0, 0, SLL.AbsoluteContentSize.Y + 20)
+		SettingsPage.CanvasSize = UDim2.new(0, 0, 0, SLL.AbsoluteContentSize.Y + 16)
 	end)
 
 	local function MakeSettingCard(h)
 		local card = Create("Frame", {
-			Size = UDim2.new(1, 0, 0, h or 42),
+			Size = UDim2.new(1, 0, 0, h or 38),
 			BackgroundColor3 = T.Dark3,
 			BackgroundTransparency = 1,
 			BorderSizePixel = 0,
 			ZIndex = 4,
 			Parent = SettingsPage
 		})
-		Create("UICorner", { CornerRadius = UDim.new(0, 7), Parent = card })
+		Create("UICorner", { CornerRadius = UDim.new(0, 6), Parent = card })
 		return card
 	end
 
 	local function MakeSettingSection(title)
 		local lbl = Create("TextLabel", {
-			Size = UDim2.new(1, 0, 0, 20),
+			Size = UDim2.new(1, 0, 0, 18),
 			BackgroundTransparency = 1,
 			Text = title:upper(),
 			Font = Enum.Font.GothamBold,
-			TextSize = 10,
-			TextColor3 = T.WhiteFade,
+			TextSize = 9,
+			TextColor3 = T.White,
 			TextXAlignment = Enum.TextXAlignment.Left,
 			ZIndex = 4,
 			Parent = SettingsPage
@@ -320,14 +307,14 @@ function XenoFluentUI.new(config)
 	end
 
 	local function MakeSettingButton(title, callback)
-		local card = MakeSettingCard(42)
+		local card = MakeSettingCard(38)
 		Create("TextLabel", {
-			Size = UDim2.new(1, -24, 1, 0),
-			Position = UDim2.new(0, 12, 0, 0),
+			Size = UDim2.new(1, -20, 1, 0),
+			Position = UDim2.new(0, 10, 0, 0),
 			BackgroundTransparency = 1,
 			Text = title,
 			Font = Enum.Font.GothamSemibold,
-			TextSize = 13,
+			TextSize = 12,
 			TextColor3 = T.White,
 			TextXAlignment = Enum.TextXAlignment.Left,
 			ZIndex = 5,
@@ -343,28 +330,28 @@ function XenoFluentUI.new(config)
 			ZIndex = 6,
 			Parent = card
 		})
-		Create("UICorner", { CornerRadius = UDim.new(0, 7), Parent = ripple })
+		Create("UICorner", { CornerRadius = UDim.new(0, 6), Parent = ripple })
 		local CR = Create("TextButton", { Size = UDim2.new(1, 0, 1, 0), BackgroundTransparency = 1, Text = "", ZIndex = 7, Parent = card })
 		CR.MouseEnter:Connect(function() Tween(card, { BackgroundTransparency = 0.7 }, 0.1) end)
 		CR.MouseLeave:Connect(function() Tween(card, { BackgroundTransparency = 1 }, 0.1) end)
 		CR.MouseButton1Click:Connect(function()
 			ripple.Size = UDim2.new(0, 0, 0, 0)
 			ripple.BackgroundTransparency = 0.85
-			Tween(ripple, { Size = UDim2.new(1, 0, 1, 0), BackgroundTransparency = 1 }, 0.35)
+			Tween(ripple, { Size = UDim2.new(1, 0, 1, 0), BackgroundTransparency = 1 }, 0.3)
 			if callback then callback() end
 		end)
 		return CR
 	end
 
 	MakeSettingSection("Game Info")
-	local infoCard = MakeSettingCard(42)
+	local infoCard = MakeSettingCard(38)
 	Create("TextLabel", {
-		Size = UDim2.new(1, -20, 1, 0),
-		Position = UDim2.new(0, 12, 0, 0),
+		Size = UDim2.new(1, -16, 1, 0),
+		Position = UDim2.new(0, 10, 0, 0),
 		BackgroundTransparency = 1,
-		Text = "⬡ " .. GAME_NAME,
+		Text = GAME_NAME,
 		Font = Enum.Font.GothamSemibold,
-		TextSize = 12,
+		TextSize = 11,
 		TextColor3 = T.WhiteFade,
 		TextXAlignment = Enum.TextXAlignment.Left,
 		ZIndex = 5,
@@ -372,24 +359,24 @@ function XenoFluentUI.new(config)
 	})
 
 	MakeSettingSection("Theme")
-	local themeCard = MakeSettingCard(42)
+	local themeCard = MakeSettingCard(38)
 	themeCard.ClipsDescendants = false
 	themeCard.ZIndex = 10
 	Create("TextLabel", {
-		Size = UDim2.new(1, -150, 1, 0),
-		Position = UDim2.new(0, 12, 0, 0),
+		Size = UDim2.new(1, -140, 1, 0),
+		Position = UDim2.new(0, 10, 0, 0),
 		BackgroundTransparency = 1,
 		Text = "Select Theme",
 		Font = Enum.Font.GothamSemibold,
-		TextSize = 13,
+		TextSize = 12,
 		TextColor3 = T.White,
 		TextXAlignment = Enum.TextXAlignment.Left,
 		ZIndex = 11,
 		Parent = themeCard
 	})
 	local themeDropBtn = Create("TextButton", {
-		Size = UDim2.new(0, 125, 0, 27),
-		Position = UDim2.new(1, -135, 0.5, -13),
+		Size = UDim2.new(0, 115, 0, 24),
+		Position = UDim2.new(1, -122, 0.5, -12),
 		BackgroundColor3 = T.Dark4,
 		BackgroundTransparency = 0,
 		Text = "",
@@ -400,31 +387,31 @@ function XenoFluentUI.new(config)
 	Create("UICorner", { CornerRadius = UDim.new(0, 5), Parent = themeDropBtn })
 	Create("UIStroke", { Color = T.Border, Transparency = 0, Thickness = 1, Parent = themeDropBtn })
 	local themeSelLabel = Create("TextLabel", {
-		Size = UDim2.new(1, -24, 1, 0),
-		Position = UDim2.new(0, 9, 0, 0),
+		Size = UDim2.new(1, -22, 1, 0),
+		Position = UDim2.new(0, 8, 0, 0),
 		BackgroundTransparency = 1,
 		Text = "Original",
 		Font = Enum.Font.Gotham,
-		TextSize = 11,
+		TextSize = 10,
 		TextColor3 = T.White,
 		TextXAlignment = Enum.TextXAlignment.Left,
 		ZIndex = 13,
 		Parent = themeDropBtn
 	})
 	local themeArrow = Create("TextLabel", {
-		Size = UDim2.new(0, 18, 1, 0),
-		Position = UDim2.new(1, -20, 0, 0),
+		Size = UDim2.new(0, 16, 1, 0),
+		Position = UDim2.new(1, -18, 0, 0),
 		BackgroundTransparency = 1,
-		Text = "▾",
+		Text = "v",
 		Font = Enum.Font.GothamBold,
-		TextSize = 10,
+		TextSize = 9,
 		TextColor3 = T.WhiteFade,
 		ZIndex = 13,
 		Parent = themeDropBtn
 	})
 	local themeDropList = Create("Frame", {
-		Size = UDim2.new(0, 125, 0, 0),
-		Position = UDim2.new(1, -135, 1, 4),
+		Size = UDim2.new(0, 115, 0, 0),
+		Position = UDim2.new(1, -122, 1, 3),
 		BackgroundColor3 = T.Dark3,
 		BackgroundTransparency = 0,
 		BorderSizePixel = 0,
@@ -433,9 +420,9 @@ function XenoFluentUI.new(config)
 		ZIndex = 20,
 		Parent = themeCard
 	})
-	Create("UICorner", { CornerRadius = UDim.new(0, 7), Parent = themeDropList })
+	Create("UICorner", { CornerRadius = UDim.new(0, 6), Parent = themeDropList })
 	Create("UIStroke", { Color = T.Border, Transparency = 0, Thickness = 1, Parent = themeDropList })
-	Create("UIPadding", { PaddingTop = UDim.new(0, 4), PaddingBottom = UDim.new(0, 4), Parent = themeDropList })
+	Create("UIPadding", { PaddingTop = UDim.new(0, 3), PaddingBottom = UDim.new(0, 3), Parent = themeDropList })
 	local themeDLL = Create("UIListLayout", { SortOrder = Enum.SortOrder.LayoutOrder, Padding = UDim.new(0, 2), Parent = themeDropList })
 
 	local themeOptions = {"Original"}
@@ -448,31 +435,31 @@ function XenoFluentUI.new(config)
 		end
 		for _, opt in ipairs(themeOptions) do
 			local Item = Create("TextButton", {
-				Size = UDim2.new(1, -8, 0, 27),
-				Position = UDim2.new(0, 4, 0, 0),
+				Size = UDim2.new(1, -6, 0, 24),
+				Position = UDim2.new(0, 3, 0, 0),
 				BackgroundColor3 = opt == selectedTheme and T.Dark5 or T.Dark3,
 				BackgroundTransparency = 0,
 				Text = opt,
 				Font = Enum.Font.Gotham,
-				TextSize = 11,
+				TextSize = 10,
 				TextColor3 = opt == selectedTheme and T.White or T.WhiteDim,
 				BorderSizePixel = 0,
 				ZIndex = 21,
 				Parent = themeDropList
 			})
-			Create("UICorner", { CornerRadius = UDim.new(0, 5), Parent = Item })
-			Create("UIPadding", { PaddingLeft = UDim.new(0, 9), Parent = Item })
+			Create("UICorner", { CornerRadius = UDim.new(0, 4), Parent = Item })
+			Create("UIPadding", { PaddingLeft = UDim.new(0, 8), Parent = Item })
 			Item.MouseButton1Click:Connect(function()
 				selectedTheme = opt
 				themeSelLabel.Text = opt
 				BuildThemeOptions()
 				themeOpen = false
-				Tween(themeDropList, { Size = UDim2.new(0, 125, 0, 0) }, 0.18)
-				task.delay(0.2, function() themeDropList.Visible = false end)
-				themeArrow.Text = "▾"
+				Tween(themeDropList, { Size = UDim2.new(0, 115, 0, 0) }, 0.15)
+				task.delay(0.18, function() themeDropList.Visible = false end)
+				themeArrow.Text = "v"
 			end)
 		end
-		themeDropList.Size = UDim2.new(0, 125, 0, themeDLL.AbsoluteContentSize.Y + 8)
+		themeDropList.Size = UDim2.new(0, 115, 0, themeDLL.AbsoluteContentSize.Y + 6)
 	end
 
 	themeDropBtn.MouseButton1Click:Connect(function()
@@ -480,27 +467,27 @@ function XenoFluentUI.new(config)
 		if themeOpen then
 			BuildThemeOptions()
 			themeDropList.Visible = true
-			local h = themeDLL.AbsoluteContentSize.Y + 8
-			themeDropList.Size = UDim2.new(0, 125, 0, 0)
-			Tween(themeDropList, { Size = UDim2.new(0, 125, 0, h) }, 0.2, Enum.EasingStyle.Quart)
-			themeArrow.Text = "▴"
+			local h = themeDLL.AbsoluteContentSize.Y + 6
+			themeDropList.Size = UDim2.new(0, 115, 0, 0)
+			Tween(themeDropList, { Size = UDim2.new(0, 115, 0, h) }, 0.18, Enum.EasingStyle.Quart)
+			themeArrow.Text = "^"
 		else
-			Tween(themeDropList, { Size = UDim2.new(0, 125, 0, 0) }, 0.18)
-			task.delay(0.2, function() themeDropList.Visible = false end)
-			themeArrow.Text = "▾"
+			Tween(themeDropList, { Size = UDim2.new(0, 115, 0, 0) }, 0.15)
+			task.delay(0.18, function() themeDropList.Visible = false end)
+			themeArrow.Text = "v"
 		end
 	end)
 
-	MakeSettingSection("Identity")
+	MakeSettingSection("Identity Class")
 
-	local unknownCard = MakeSettingCard(42)
+	local unknownCard = MakeSettingCard(38)
 	local unknownBtnLabel = Create("TextLabel", {
-		Size = UDim2.new(1, -24, 1, 0),
-		Position = UDim2.new(0, 12, 0, 0),
+		Size = UDim2.new(1, -20, 1, 0),
+		Position = UDim2.new(0, 10, 0, 0),
 		BackgroundTransparency = 1,
 		Text = "Set Unknown",
 		Font = Enum.Font.GothamSemibold,
-		TextSize = 13,
+		TextSize = 12,
 		TextColor3 = T.White,
 		TextXAlignment = Enum.TextXAlignment.Left,
 		ZIndex = 5,
@@ -516,14 +503,14 @@ function XenoFluentUI.new(config)
 		ZIndex = 6,
 		Parent = unknownCard
 	})
-	Create("UICorner", { CornerRadius = UDim.new(0, 7), Parent = unknownRipple })
+	Create("UICorner", { CornerRadius = UDim.new(0, 6), Parent = unknownRipple })
 	local unknownCR = Create("TextButton", { Size = UDim2.new(1, 0, 1, 0), BackgroundTransparency = 1, Text = "", ZIndex = 7, Parent = unknownCard })
 	unknownCR.MouseEnter:Connect(function() Tween(unknownCard, { BackgroundTransparency = 0.7 }, 0.1) end)
 	unknownCR.MouseLeave:Connect(function() Tween(unknownCard, { BackgroundTransparency = 1 }, 0.1) end)
 	unknownCR.MouseButton1Click:Connect(function()
 		unknownRipple.Size = UDim2.new(0, 0, 0, 0)
 		unknownRipple.BackgroundTransparency = 0.85
-		Tween(unknownRipple, { Size = UDim2.new(1, 0, 1, 0), BackgroundTransparency = 1 }, 0.35)
+		Tween(unknownRipple, { Size = UDim2.new(1, 0, 1, 0), BackgroundTransparency = 1 }, 0.3)
 		isUnknown = not isUnknown
 		if isUnknown then
 			DisplayNameLabel.Text = "Unknown"
@@ -597,26 +584,26 @@ function XenoFluentUI.new(config)
 		end
 	end)
 
-	MakeSettingSection("Misc")
+	MakeSettingSection("Other [More Update Soon]")
 
-	local afkConn
+    local afkConn
 	local afkActive = false
-	local afkCard = MakeSettingCard(42)
+	local afkCard = MakeSettingCard(38)
 	local afkLabel = Create("TextLabel", {
-		Size = UDim2.new(1, -30, 1, 0),
-		Position = UDim2.new(0, 12, 0, 0),
+		Size = UDim2.new(1, -28, 1, 0),
+		Position = UDim2.new(0, 10, 0, 0),
 		BackgroundTransparency = 1,
 		Text = "Anti AFK",
 		Font = Enum.Font.GothamSemibold,
-		TextSize = 13,
+		TextSize = 12,
 		TextColor3 = T.White,
 		TextXAlignment = Enum.TextXAlignment.Left,
 		ZIndex = 5,
 		Parent = afkCard
 	})
 	local afkDot = Create("Frame", {
-		Size = UDim2.new(0, 8, 0, 8),
-		Position = UDim2.new(1, -20, 0.5, -4),
+		Size = UDim2.new(0, 7, 0, 7),
+		Position = UDim2.new(1, -16, 0.5, -3),
 		BackgroundColor3 = T.Border,
 		BackgroundTransparency = 0,
 		BorderSizePixel = 0,
@@ -634,14 +621,14 @@ function XenoFluentUI.new(config)
 		ZIndex = 6,
 		Parent = afkCard
 	})
-	Create("UICorner", { CornerRadius = UDim.new(0, 7), Parent = afkRipple })
+	Create("UICorner", { CornerRadius = UDim.new(0, 6), Parent = afkRipple })
 	local afkCR = Create("TextButton", { Size = UDim2.new(1, 0, 1, 0), BackgroundTransparency = 1, Text = "", ZIndex = 7, Parent = afkCard })
 	afkCR.MouseEnter:Connect(function() Tween(afkCard, { BackgroundTransparency = 0.7 }, 0.1) end)
 	afkCR.MouseLeave:Connect(function() Tween(afkCard, { BackgroundTransparency = 1 }, 0.1) end)
 	afkCR.MouseButton1Click:Connect(function()
 		afkRipple.Size = UDim2.new(0, 0, 0, 0)
 		afkRipple.BackgroundTransparency = 0.85
-		Tween(afkRipple, { Size = UDim2.new(1, 0, 1, 0), BackgroundTransparency = 1 }, 0.35)
+		Tween(afkRipple, { Size = UDim2.new(1, 0, 1, 0), BackgroundTransparency = 1 }, 0.3)
 		afkActive = not afkActive
 		if afkActive then
 			Tween(afkDot, { BackgroundColor3 = T.Green }, 0.15)
@@ -680,34 +667,35 @@ function XenoFluentUI.new(config)
 	MakeDraggable(Main, ContentHeader)
 
 	local openBtn = Create("ImageButton", {
-		Size = UDim2.new(0, 52, 0, 52),
-		Position = UDim2.new(0, 20, 0.4, 0),
-		BackgroundColor3 = Color3.fromRGB(40, 40, 40),
+		Size = UDim2.new(0, 44, 0, 44),
+		Position = UDim2.new(0, 16, 0.4, 0),
+		BackgroundColor3 = Color3.fromRGB(18, 18, 18),
 		BackgroundTransparency = 0,
 		Image = "rbxassetid://96287081239708",
 		BorderSizePixel = 0,
 		ZIndex = 10,
 		Parent = ScreenGui
 	})
-	Create("UIStroke", { Color = Color3.fromRGB(80, 80, 80), Transparency = 0, Thickness = 1, Parent = openBtn })
+	Create("UICorner", { CornerRadius = UDim.new(0, 6), Parent = openBtn })
+	Create("UIStroke", { Color = Color3.fromRGB(0, 255, 80), Transparency = 0, Thickness = 1.5, Parent = openBtn })
 	MakeDraggable(openBtn, openBtn)
-	openBtn.MouseEnter:Connect(function() Tween(openBtn, { BackgroundColor3 = Color3.fromRGB(55, 55, 55) }, 0.12) end)
-	openBtn.MouseLeave:Connect(function() Tween(openBtn, { BackgroundColor3 = Color3.fromRGB(40, 40, 40) }, 0.12) end)
+	openBtn.MouseEnter:Connect(function() Tween(openBtn, { BackgroundColor3 = Color3.fromRGB(30, 30, 30) }, 0.12) end)
+	openBtn.MouseLeave:Connect(function() Tween(openBtn, { BackgroundColor3 = Color3.fromRGB(18, 18, 18) }, 0.12) end)
 	openBtn.MouseButton1Click:Connect(function()
 		if Main.Visible then
-			Tween(Main, { Size = UDim2.new(0, 0, 0, 0), Position = UDim2.new(0.5, 0, 0.5, 0) }, 0.25)
-			task.delay(0.26, function() Main.Visible = false end)
+			Tween(Main, { Size = UDim2.new(0, 0, 0, 0), Position = UDim2.new(0.5, 0, 0.5, 0) }, 0.22)
+			task.delay(0.23, function() Main.Visible = false end)
 		else
 			Main.Visible = true
 			Main.Size = UDim2.new(0, 0, 0, 0)
 			Main.Position = UDim2.new(0.5, 0, 0.5, 0)
-			Tween(Main, { Size = self.Size, Position = UDim2.new(0.5, -320, 0.5, -230) }, 0.35, Enum.EasingStyle.Back)
+			Tween(Main, { Size = self.Size, Position = UDim2.new(0.5, -260, 0.5, -190) }, 0.32, Enum.EasingStyle.Back)
 		end
 	end)
 
 	Main.Size = UDim2.new(0, 0, 0, 0)
 	Main.Position = UDim2.new(0.5, 0, 0.5, 0)
-	Tween(Main, { Size = self.Size, Position = UDim2.new(0.5, -320, 0.5, -230) }, 0.4, Enum.EasingStyle.Back)
+	Tween(Main, { Size = self.Size, Position = UDim2.new(0.5, -260, 0.5, -190) }, 0.38, Enum.EasingStyle.Back)
 
 	return self
 end
@@ -720,7 +708,7 @@ function XenoFluentUI:Tab(config)
 
 	local TabBtn = Create("TextButton", {
 		Name = "Tab_" .. tab.Title,
-		Size = UDim2.new(1, 0, 0, 32),
+		Size = UDim2.new(1, 0, 0, 28),
 		BackgroundColor3 = T.Dark3,
 		BackgroundTransparency = isActive and 0.3 or 1,
 		Text = "",
@@ -728,15 +716,15 @@ function XenoFluentUI:Tab(config)
 		ZIndex = 4,
 		Parent = self.TabList
 	})
-	Create("UICorner", { CornerRadius = UDim.new(0, 6), Parent = TabBtn })
+	Create("UICorner", { CornerRadius = UDim.new(0, 5), Parent = TabBtn })
 
 	local TabLabel = Create("TextLabel", {
-		Size = UDim2.new(1, -12, 1, 0),
-		Position = UDim2.new(0, 12, 0, 0),
+		Size = UDim2.new(1, -10, 1, 0),
+		Position = UDim2.new(0, 10, 0, 0),
 		BackgroundTransparency = 1,
 		Text = tab.Title,
 		Font = Enum.Font.GothamSemibold,
-		TextSize = 12,
+		TextSize = 11,
 		TextColor3 = isActive and T.White or T.WhiteFade,
 		TextXAlignment = Enum.TextXAlignment.Left,
 		ZIndex = 5,
@@ -747,8 +735,8 @@ function XenoFluentUI:Tab(config)
 
 	local Page = Create("ScrollingFrame", {
 		Name = "Page_" .. tab.Title,
-		Size = UDim2.new(1, 0, 1, -58),
-		Position = UDim2.new(0, 0, 0, 58),
+		Size = UDim2.new(1, 0, 1, -46),
+		Position = UDim2.new(0, 0, 0, 46),
 		BackgroundTransparency = 1,
 		BorderSizePixel = 0,
 		ScrollBarThickness = 2,
@@ -759,10 +747,10 @@ function XenoFluentUI:Tab(config)
 		ZIndex = 3,
 		Parent = self.ContentArea
 	})
-	Create("UIPadding", { PaddingLeft = UDim.new(0, 12), PaddingRight = UDim.new(0, 12), PaddingTop = UDim.new(0, 10), PaddingBottom = UDim.new(0, 12), Parent = Page })
+	Create("UIPadding", { PaddingLeft = UDim.new(0, 10), PaddingRight = UDim.new(0, 10), PaddingTop = UDim.new(0, 8), PaddingBottom = UDim.new(0, 10), Parent = Page })
 	local LL = Create("UIListLayout", { SortOrder = Enum.SortOrder.LayoutOrder, Padding = UDim.new(0, 0), Parent = Page })
 	LL:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
-		Page.CanvasSize = UDim2.new(0, 0, 0, LL.AbsoluteContentSize.Y + 20)
+		Page.CanvasSize = UDim2.new(0, 0, 0, LL.AbsoluteContentSize.Y + 16)
 	end)
 	tab.Page = Page
 
@@ -798,26 +786,26 @@ function XenoFluentUI:Tab(config)
 
 	local function MakeCard(h)
 		local card = Create("Frame", {
-			Size = UDim2.new(1, 0, 0, h or 42),
+			Size = UDim2.new(1, 0, 0, h or 38),
 			BackgroundColor3 = T.Dark3,
 			BackgroundTransparency = 1,
 			BorderSizePixel = 0,
 			ZIndex = 4,
 			Parent = Page
 		})
-		Create("UICorner", { CornerRadius = UDim.new(0, 7), Parent = card })
+		Create("UICorner", { CornerRadius = UDim.new(0, 6), Parent = card })
 		return card
 	end
 
 	function Tab:Section(config)
 		config = config or {}
 		local lbl = Create("TextLabel", {
-			Size = UDim2.new(1, 0, 0, 20),
+			Size = UDim2.new(1, 0, 0, 18),
 			BackgroundTransparency = 1,
 			Text = (config.Title or "Section"):upper(),
 			Font = Enum.Font.GothamBold,
-			TextSize = 10,
-			TextColor3 = T.WhiteFade,
+			TextSize = 9,
+			TextColor3 = T.White,
 			TextXAlignment = Enum.TextXAlignment.Left,
 			LayoutOrder = config.LayoutOrder or 0,
 			ZIndex = 4,
@@ -829,15 +817,15 @@ function XenoFluentUI:Tab(config)
 
 	function Tab:Button(config)
 		config = config or {}
-		local card = MakeCard(42)
+		local card = MakeCard(38)
 		card.LayoutOrder = config.LayoutOrder or 0
 		Create("TextLabel", {
-			Size = UDim2.new(1, -24, 1, 0),
-			Position = UDim2.new(0, 12, 0, 0),
+			Size = UDim2.new(1, -20, 1, 0),
+			Position = UDim2.new(0, 10, 0, 0),
 			BackgroundTransparency = 1,
 			Text = config.Title or "Button",
 			Font = Enum.Font.GothamSemibold,
-			TextSize = 13,
+			TextSize = 12,
 			TextColor3 = T.White,
 			TextXAlignment = Enum.TextXAlignment.Left,
 			ZIndex = 5,
@@ -853,14 +841,14 @@ function XenoFluentUI:Tab(config)
 			ZIndex = 6,
 			Parent = card
 		})
-		Create("UICorner", { CornerRadius = UDim.new(0, 7), Parent = ripple })
+		Create("UICorner", { CornerRadius = UDim.new(0, 6), Parent = ripple })
 		local CR = Create("TextButton", { Size = UDim2.new(1, 0, 1, 0), BackgroundTransparency = 1, Text = "", ZIndex = 7, Parent = card })
 		CR.MouseEnter:Connect(function() Tween(card, { BackgroundTransparency = 0.7 }, 0.1) end)
 		CR.MouseLeave:Connect(function() Tween(card, { BackgroundTransparency = 1 }, 0.1) end)
 		CR.MouseButton1Click:Connect(function()
 			ripple.Size = UDim2.new(0, 0, 0, 0)
 			ripple.BackgroundTransparency = 0.85
-			Tween(ripple, { Size = UDim2.new(1, 0, 1, 0), BackgroundTransparency = 1 }, 0.35)
+			Tween(ripple, { Size = UDim2.new(1, 0, 1, 0), BackgroundTransparency = 1 }, 0.3)
 			if config.Callback then config.Callback() end
 		end)
 		return CR
@@ -869,51 +857,51 @@ function XenoFluentUI:Tab(config)
 	function Tab:Toggle(config)
 		config = config or {}
 		local state = config.Default or false
-		local card = MakeCard(42)
+		local card = MakeCard(38)
 		card.LayoutOrder = config.LayoutOrder or 0
 		Create("TextLabel", {
-			Size = UDim2.new(1, -68, 1, 0),
-			Position = UDim2.new(0, 12, 0, 0),
+			Size = UDim2.new(1, -60, 1, 0),
+			Position = UDim2.new(0, 10, 0, 0),
 			BackgroundTransparency = 1,
 			Text = config.Title or "Toggle",
 			Font = Enum.Font.GothamSemibold,
-			TextSize = 13,
+			TextSize = 12,
 			TextColor3 = T.White,
 			TextXAlignment = Enum.TextXAlignment.Left,
 			ZIndex = 5,
 			Parent = card
 		})
 		local Track = Create("Frame", {
-			Size = UDim2.new(0, 38, 0, 20),
-			Position = UDim2.new(1, -49, 0.5, -10),
+			Size = UDim2.new(0, 34, 0, 18),
+			Position = UDim2.new(1, -42, 0.5, -9),
 			BackgroundColor3 = state and T.Dark5 or T.Dark3,
 			BackgroundTransparency = 0,
 			BorderSizePixel = 0,
 			ZIndex = 6,
 			Parent = card
 		})
-		Create("UICorner", { CornerRadius = UDim.new(0, 10), Parent = Track })
+		Create("UICorner", { CornerRadius = UDim.new(0, 9), Parent = Track })
 		local TStroke = Create("UIStroke", { Color = state and T.White or T.Border, Transparency = 0, Thickness = 1, Parent = Track })
 		local Knob = Create("Frame", {
-			Size = UDim2.new(0, 14, 0, 14),
-			Position = state and UDim2.new(1, -17, 0.5, -7) or UDim2.new(0, 3, 0.5, -7),
+			Size = UDim2.new(0, 12, 0, 12),
+			Position = state and UDim2.new(1, -15, 0.5, -6) or UDim2.new(0, 3, 0.5, -6),
 			BackgroundColor3 = T.White,
 			BackgroundTransparency = 0,
 			BorderSizePixel = 0,
 			ZIndex = 7,
 			Parent = Track
 		})
-		Create("UICorner", { CornerRadius = UDim.new(0, 7), Parent = Knob })
+		Create("UICorner", { CornerRadius = UDim.new(0, 6), Parent = Knob })
 		local CR = Create("TextButton", { Size = UDim2.new(1, 0, 1, 0), BackgroundTransparency = 1, Text = "", ZIndex = 8, Parent = card })
 		CR.MouseButton1Click:Connect(function()
 			state = not state
 			if state then
-				Tween(Track, { BackgroundColor3 = T.Dark5 }, 0.18)
-				Tween(Knob, { Position = UDim2.new(1, -17, 0.5, -7) }, 0.18)
+				Tween(Track, { BackgroundColor3 = T.Dark5 }, 0.16)
+				Tween(Knob, { Position = UDim2.new(1, -15, 0.5, -6) }, 0.16)
 				TStroke.Color = T.White
 			else
-				Tween(Track, { BackgroundColor3 = T.Dark3 }, 0.18)
-				Tween(Knob, { Position = UDim2.new(0, 3, 0.5, -7) }, 0.18)
+				Tween(Track, { BackgroundColor3 = T.Dark3 }, 0.16)
+				Tween(Knob, { Position = UDim2.new(0, 3, 0.5, -6) }, 0.16)
 				TStroke.Color = T.Border
 			end
 			if config.Callback then config.Callback(state) end
@@ -924,12 +912,12 @@ function XenoFluentUI:Tab(config)
 		function obj:Set(val)
 			state = val
 			if state then
-				Tween(Track, { BackgroundColor3 = T.Dark5 }, 0.18)
-				Tween(Knob, { Position = UDim2.new(1, -17, 0.5, -7) }, 0.18)
+				Tween(Track, { BackgroundColor3 = T.Dark5 }, 0.16)
+				Tween(Knob, { Position = UDim2.new(1, -15, 0.5, -6) }, 0.16)
 				TStroke.Color = T.White
 			else
-				Tween(Track, { BackgroundColor3 = T.Dark3 }, 0.18)
-				Tween(Knob, { Position = UDim2.new(0, 3, 0.5, -7) }, 0.18)
+				Tween(Track, { BackgroundColor3 = T.Dark3 }, 0.16)
+				Tween(Knob, { Position = UDim2.new(0, 3, 0.5, -6) }, 0.16)
 				TStroke.Color = T.Border
 			end
 		end
@@ -939,38 +927,38 @@ function XenoFluentUI:Tab(config)
 
 	function Tab:Input(config)
 		config = config or {}
-		local card = MakeCard(52)
+		local card = MakeCard(48)
 		card.LayoutOrder = config.LayoutOrder or 0
 		Create("TextLabel", {
-			Size = UDim2.new(1, -20, 0, 15),
-			Position = UDim2.new(0, 12, 0, 8),
+			Size = UDim2.new(1, -16, 0, 14),
+			Position = UDim2.new(0, 10, 0, 6),
 			BackgroundTransparency = 1,
 			Text = config.Title or "Input",
 			Font = Enum.Font.GothamSemibold,
-			TextSize = 12,
+			TextSize = 11,
 			TextColor3 = T.White,
 			TextXAlignment = Enum.TextXAlignment.Left,
 			ZIndex = 5,
 			Parent = card
 		})
 		local Box = Create("TextBox", {
-			Size = UDim2.new(1, -24, 0, 23),
-			Position = UDim2.new(0, 12, 0, 25),
+			Size = UDim2.new(1, -20, 0, 20),
+			Position = UDim2.new(0, 10, 0, 22),
 			BackgroundColor3 = T.Dark4,
 			BackgroundTransparency = 0,
 			Text = config.Default or "",
 			PlaceholderText = config.Placeholder or "Type here...",
 			PlaceholderColor3 = T.WhiteFade,
 			Font = Enum.Font.Gotham,
-			TextSize = 12,
+			TextSize = 11,
 			TextColor3 = T.White,
 			ClearTextOnFocus = false,
 			BorderSizePixel = 0,
 			ZIndex = 6,
 			Parent = card
 		})
-		Create("UICorner", { CornerRadius = UDim.new(0, 5), Parent = Box })
-		Create("UIPadding", { PaddingLeft = UDim.new(0, 8), Parent = Box })
+		Create("UICorner", { CornerRadius = UDim.new(0, 4), Parent = Box })
+		Create("UIPadding", { PaddingLeft = UDim.new(0, 7), Parent = Box })
 		local obj = {}
 		function obj:Get() return Box.Text end
 		function obj:Set(val) Box.Text = val end
@@ -982,35 +970,35 @@ function XenoFluentUI:Tab(config)
 		local min = config.Min or 0
 		local max = config.Max or 100
 		local value = math.clamp(config.Default or min, min, max)
-		local card = MakeCard(56)
+		local card = MakeCard(50)
 		card.LayoutOrder = config.LayoutOrder or 0
 		Create("TextLabel", {
-			Size = UDim2.new(1, -60, 0, 16),
-			Position = UDim2.new(0, 12, 0, 8),
+			Size = UDim2.new(1, -52, 0, 14),
+			Position = UDim2.new(0, 10, 0, 6),
 			BackgroundTransparency = 1,
 			Text = config.Title or "Slider",
 			Font = Enum.Font.GothamSemibold,
-			TextSize = 13,
+			TextSize = 12,
 			TextColor3 = T.White,
 			TextXAlignment = Enum.TextXAlignment.Left,
 			ZIndex = 5,
 			Parent = card
 		})
 		local ValLabel = Create("TextLabel", {
-			Size = UDim2.new(0, 50, 0, 16),
-			Position = UDim2.new(1, -58, 0, 8),
+			Size = UDim2.new(0, 44, 0, 14),
+			Position = UDim2.new(1, -50, 0, 6),
 			BackgroundTransparency = 1,
 			Text = tostring(value),
 			Font = Enum.Font.GothamBold,
-			TextSize = 12,
+			TextSize = 11,
 			TextColor3 = T.WhiteFade,
 			TextXAlignment = Enum.TextXAlignment.Right,
 			ZIndex = 5,
 			Parent = card
 		})
 		local Track = Create("Frame", {
-			Size = UDim2.new(1, -24, 0, 4),
-			Position = UDim2.new(0, 12, 0, 36),
+			Size = UDim2.new(1, -20, 0, 3),
+			Position = UDim2.new(0, 10, 0, 32),
 			BackgroundColor3 = T.Dark5,
 			BackgroundTransparency = 0,
 			BorderSizePixel = 0,
@@ -1028,7 +1016,7 @@ function XenoFluentUI:Tab(config)
 		})
 		Create("UICorner", { CornerRadius = UDim.new(0, 2), Parent = Fill })
 		local Knob = Create("Frame", {
-			Size = UDim2.new(0, 14, 0, 14),
+			Size = UDim2.new(0, 12, 0, 12),
 			AnchorPoint = Vector2.new(0.5, 0.5),
 			Position = UDim2.new((value - min) / (max - min), 0, 0.5, 0),
 			BackgroundColor3 = T.White,
@@ -1037,14 +1025,14 @@ function XenoFluentUI:Tab(config)
 			ZIndex = 7,
 			Parent = Track
 		})
-		Create("UICorner", { CornerRadius = UDim.new(0, 7), Parent = Knob })
+		Create("UICorner", { CornerRadius = UDim.new(0, 6), Parent = Knob })
 		local draggingSlider = false
 		local function updateSlider(input)
 			local relX = math.clamp((input.Position.X - Track.AbsolutePosition.X) / Track.AbsoluteSize.X, 0, 1)
 			value = math.floor(min + (max - min) * relX)
 			ValLabel.Text = tostring(value)
-			Tween(Fill, { Size = UDim2.new(relX, 0, 1, 0) }, 0.05)
-			Tween(Knob, { Position = UDim2.new(relX, 0, 0.5, 0) }, 0.05)
+			Tween(Fill, { Size = UDim2.new(relX, 0, 1, 0) }, 0.04)
+			Tween(Knob, { Position = UDim2.new(relX, 0, 0.5, 0) }, 0.04)
 			if config.Callback then config.Callback(value) end
 		end
 		Track.InputBegan:Connect(function(input)
@@ -1069,36 +1057,36 @@ function XenoFluentUI:Tab(config)
 			value = math.clamp(val, min, max)
 			local relX = (value - min) / (max - min)
 			ValLabel.Text = tostring(value)
-			Tween(Fill, { Size = UDim2.new(relX, 0, 1, 0) }, 0.1)
-			Tween(Knob, { Position = UDim2.new(relX, 0, 0.5, 0) }, 0.1)
+			Tween(Fill, { Size = UDim2.new(relX, 0, 1, 0) }, 0.08)
+			Tween(Knob, { Position = UDim2.new(relX, 0, 0.5, 0) }, 0.08)
 		end
 		return obj
 	end
 
-	function Tab:Select(config)
+function Tab:Select(config)
 		config = config or {}
 		local options = config.Options or {}
 		local selected = config.Default or (options[1] or "")
 		local open = false
-		local card = MakeCard(42)
+		local card = MakeCard(38)
 		card.LayoutOrder = config.LayoutOrder or 0
 		card.ClipsDescendants = false
 		card.ZIndex = 10
 		Create("TextLabel", {
-			Size = UDim2.new(1, -150, 1, 0),
-			Position = UDim2.new(0, 12, 0, 0),
+			Size = UDim2.new(1, -140, 1, 0),
+			Position = UDim2.new(0, 10, 0, 0),
 			BackgroundTransparency = 1,
 			Text = config.Title or "Select",
 			Font = Enum.Font.GothamSemibold,
-			TextSize = 13,
+			TextSize = 12,
 			TextColor3 = T.White,
 			TextXAlignment = Enum.TextXAlignment.Left,
 			ZIndex = 11,
 			Parent = card
 		})
 		local DropBtn = Create("TextButton", {
-			Size = UDim2.new(0, 125, 0, 27),
-			Position = UDim2.new(1, -135, 0.5, -13),
+			Size = UDim2.new(0, 115, 0, 24),
+			Position = UDim2.new(1, -122, 0.5, -12),
 			BackgroundColor3 = T.Dark4,
 			BackgroundTransparency = 0,
 			Text = "",
@@ -1109,31 +1097,31 @@ function XenoFluentUI:Tab(config)
 		Create("UICorner", { CornerRadius = UDim.new(0, 5), Parent = DropBtn })
 		Create("UIStroke", { Color = T.Border, Transparency = 0, Thickness = 1, Parent = DropBtn })
 		local SelLabel = Create("TextLabel", {
-			Size = UDim2.new(1, -24, 1, 0),
-			Position = UDim2.new(0, 9, 0, 0),
+			Size = UDim2.new(1, -22, 1, 0),
+			Position = UDim2.new(0, 8, 0, 0),
 			BackgroundTransparency = 1,
 			Text = selected,
 			Font = Enum.Font.Gotham,
-			TextSize = 11,
+			TextSize = 10,
 			TextColor3 = T.White,
 			TextXAlignment = Enum.TextXAlignment.Left,
 			ZIndex = 13,
 			Parent = DropBtn
 		})
 		local Arrow = Create("TextLabel", {
-			Size = UDim2.new(0, 18, 1, 0),
-			Position = UDim2.new(1, -20, 0, 0),
+			Size = UDim2.new(0, 16, 1, 0),
+			Position = UDim2.new(1, -18, 0, 0),
 			BackgroundTransparency = 1,
-			Text = "▾",
+			Text = "v",
 			Font = Enum.Font.GothamBold,
-			TextSize = 10,
+			TextSize = 9,
 			TextColor3 = T.WhiteFade,
 			ZIndex = 13,
 			Parent = DropBtn
 		})
 		local DropList = Create("Frame", {
-			Size = UDim2.new(0, 125, 0, 0),
-			Position = UDim2.new(1, -135, 1, 4),
+			Size = UDim2.new(0, 115, 0, 0),
+			Position = UDim2.new(1, -122, 1, 3),
 			BackgroundColor3 = T.Dark3,
 			BackgroundTransparency = 0,
 			BorderSizePixel = 0,
@@ -1142,9 +1130,9 @@ function XenoFluentUI:Tab(config)
 			ZIndex = 20,
 			Parent = card
 		})
-		Create("UICorner", { CornerRadius = UDim.new(0, 7), Parent = DropList })
+		Create("UICorner", { CornerRadius = UDim.new(0, 6), Parent = DropList })
 		Create("UIStroke", { Color = T.Border, Transparency = 0, Thickness = 1, Parent = DropList })
-		Create("UIPadding", { PaddingTop = UDim.new(0, 4), PaddingBottom = UDim.new(0, 4), Parent = DropList })
+		Create("UIPadding", { PaddingTop = UDim.new(0, 3), PaddingBottom = UDim.new(0, 3), Parent = DropList })
 		local DLL = Create("UIListLayout", { SortOrder = Enum.SortOrder.LayoutOrder, Padding = UDim.new(0, 2), Parent = DropList })
 		local function BuildOptions()
 			for _, c in pairs(DropList:GetChildren()) do
@@ -1152,20 +1140,20 @@ function XenoFluentUI:Tab(config)
 			end
 			for _, opt in ipairs(options) do
 				local Item = Create("TextButton", {
-					Size = UDim2.new(1, -8, 0, 27),
-					Position = UDim2.new(0, 4, 0, 0),
+					Size = UDim2.new(1, -6, 0, 24),
+					Position = UDim2.new(0, 3, 0, 0),
 					BackgroundColor3 = opt == selected and T.Dark5 or T.Dark3,
 					BackgroundTransparency = 0,
 					Text = opt,
 					Font = Enum.Font.Gotham,
-					TextSize = 11,
+					TextSize = 10,
 					TextColor3 = opt == selected and T.White or T.WhiteDim,
 					BorderSizePixel = 0,
 					ZIndex = 21,
 					Parent = DropList
 				})
-				Create("UICorner", { CornerRadius = UDim.new(0, 5), Parent = Item })
-				Create("UIPadding", { PaddingLeft = UDim.new(0, 9), Parent = Item })
+				Create("UICorner", { CornerRadius = UDim.new(0, 4), Parent = Item })
+				Create("UIPadding", { PaddingLeft = UDim.new(0, 8), Parent = Item })
 				Item.MouseEnter:Connect(function()
 					if opt ~= selected then Tween(Item, { BackgroundColor3 = T.Dark4 }, 0.1) end
 				end)
@@ -1177,27 +1165,27 @@ function XenoFluentUI:Tab(config)
 					SelLabel.Text = selected
 					BuildOptions()
 					open = false
-					Tween(DropList, { Size = UDim2.new(0, 125, 0, 0) }, 0.18)
-					task.delay(0.2, function() DropList.Visible = false end)
-					Arrow.Text = "▾"
+					Tween(DropList, { Size = UDim2.new(0, 115, 0, 0) }, 0.15)
+					task.delay(0.18, function() DropList.Visible = false end)
+					Arrow.Text = "v"
 					if config.Callback then config.Callback(selected) end
 				end)
 			end
-			DropList.Size = UDim2.new(0, 125, 0, DLL.AbsoluteContentSize.Y + 8)
+			DropList.Size = UDim2.new(0, 115, 0, DLL.AbsoluteContentSize.Y + 6)
 		end
 		DropBtn.MouseButton1Click:Connect(function()
 			open = not open
 			if open then
 				BuildOptions()
 				DropList.Visible = true
-				local h = DLL.AbsoluteContentSize.Y + 8
-				DropList.Size = UDim2.new(0, 125, 0, 0)
-				Tween(DropList, { Size = UDim2.new(0, 125, 0, h) }, 0.2, Enum.EasingStyle.Quart)
-				Arrow.Text = "▴"
+				local h = DLL.AbsoluteContentSize.Y + 6
+				DropList.Size = UDim2.new(0, 115, 0, 0)
+				Tween(DropList, { Size = UDim2.new(0, 115, 0, h) }, 0.18, Enum.EasingStyle.Quart)
+				Arrow.Text = "^"
 			else
-				Tween(DropList, { Size = UDim2.new(0, 125, 0, 0) }, 0.18)
-				task.delay(0.2, function() DropList.Visible = false end)
-				Arrow.Text = "▾"
+				Tween(DropList, { Size = UDim2.new(0, 115, 0, 0) }, 0.15)
+				task.delay(0.18, function() DropList.Visible = false end)
+				Arrow.Text = "v"
 			end
 		end)
 		local obj = {}
@@ -1216,25 +1204,25 @@ function XenoFluentUI:Tab(config)
 			for _, d in ipairs(config.Default) do states[d] = true end
 		end
 		local open = false
-		local card = MakeCard(42)
+		local card = MakeCard(38)
 		card.LayoutOrder = config.LayoutOrder or 0
 		card.ClipsDescendants = false
 		card.ZIndex = 10
 		Create("TextLabel", {
-			Size = UDim2.new(1, -150, 1, 0),
-			Position = UDim2.new(0, 12, 0, 0),
+			Size = UDim2.new(1, -140, 1, 0),
+			Position = UDim2.new(0, 10, 0, 0),
 			BackgroundTransparency = 1,
 			Text = config.Title or "SelectToggle",
 			Font = Enum.Font.GothamSemibold,
-			TextSize = 13,
+			TextSize = 12,
 			TextColor3 = T.White,
 			TextXAlignment = Enum.TextXAlignment.Left,
 			ZIndex = 11,
 			Parent = card
 		})
 		local DropBtn = Create("TextButton", {
-			Size = UDim2.new(0, 125, 0, 27),
-			Position = UDim2.new(1, -135, 0.5, -13),
+			Size = UDim2.new(0, 115, 0, 24),
+			Position = UDim2.new(1, -122, 0.5, -12),
 			BackgroundColor3 = T.Dark4,
 			BackgroundTransparency = 0,
 			Text = "",
@@ -1254,31 +1242,31 @@ function XenoFluentUI:Tab(config)
 			return sel[1] .. " +" .. (#sel - 1)
 		end
 		local SelLabel = Create("TextLabel", {
-			Size = UDim2.new(1, -24, 1, 0),
-			Position = UDim2.new(0, 9, 0, 0),
+			Size = UDim2.new(1, -22, 1, 0),
+			Position = UDim2.new(0, 8, 0, 0),
 			BackgroundTransparency = 1,
 			Text = GetSummary(),
 			Font = Enum.Font.Gotham,
-			TextSize = 11,
+			TextSize = 10,
 			TextColor3 = T.White,
 			TextXAlignment = Enum.TextXAlignment.Left,
 			ZIndex = 13,
 			Parent = DropBtn
 		})
 		local Arrow = Create("TextLabel", {
-			Size = UDim2.new(0, 18, 1, 0),
-			Position = UDim2.new(1, -20, 0, 0),
+			Size = UDim2.new(0, 16, 1, 0),
+			Position = UDim2.new(1, -18, 0, 0),
 			BackgroundTransparency = 1,
-			Text = "▾",
+			Text = "v",
 			Font = Enum.Font.GothamBold,
-			TextSize = 10,
+			TextSize = 9,
 			TextColor3 = T.WhiteFade,
 			ZIndex = 13,
 			Parent = DropBtn
 		})
 		local DropList = Create("Frame", {
-			Size = UDim2.new(0, 125, 0, 0),
-			Position = UDim2.new(1, -135, 1, 4),
+			Size = UDim2.new(0, 115, 0, 0),
+			Position = UDim2.new(1, -122, 1, 3),
 			BackgroundColor3 = T.Dark3,
 			BackgroundTransparency = 0,
 			BorderSizePixel = 0,
@@ -1287,9 +1275,9 @@ function XenoFluentUI:Tab(config)
 			ZIndex = 20,
 			Parent = card
 		})
-		Create("UICorner", { CornerRadius = UDim.new(0, 7), Parent = DropList })
+		Create("UICorner", { CornerRadius = UDim.new(0, 6), Parent = DropList })
 		Create("UIStroke", { Color = T.Border, Transparency = 0, Thickness = 1, Parent = DropList })
-		Create("UIPadding", { PaddingTop = UDim.new(0, 4), PaddingBottom = UDim.new(0, 4), Parent = DropList })
+		Create("UIPadding", { PaddingTop = UDim.new(0, 3), PaddingBottom = UDim.new(0, 3), Parent = DropList })
 		local DLL = Create("UIListLayout", { SortOrder = Enum.SortOrder.LayoutOrder, Padding = UDim.new(0, 2), Parent = DropList })
 		local itemRefs = {}
 		local function BuildOptions()
@@ -1299,30 +1287,30 @@ function XenoFluentUI:Tab(config)
 			itemRefs = {}
 			for _, opt in ipairs(options) do
 				local row = Create("Frame", {
-					Size = UDim2.new(1, -8, 0, 27),
-					Position = UDim2.new(0, 4, 0, 0),
+					Size = UDim2.new(1, -6, 0, 24),
+					Position = UDim2.new(0, 3, 0, 0),
 					BackgroundColor3 = states[opt] and T.Dark5 or T.Dark3,
 					BackgroundTransparency = 0,
 					BorderSizePixel = 0,
 					ZIndex = 21,
 					Parent = DropList
 				})
-				Create("UICorner", { CornerRadius = UDim.new(0, 5), Parent = row })
+				Create("UICorner", { CornerRadius = UDim.new(0, 4), Parent = row })
 				Create("TextLabel", {
-					Size = UDim2.new(1, -36, 1, 0),
-					Position = UDim2.new(0, 9, 0, 0),
+					Size = UDim2.new(1, -30, 1, 0),
+					Position = UDim2.new(0, 8, 0, 0),
 					BackgroundTransparency = 1,
 					Text = opt,
 					Font = Enum.Font.Gotham,
-					TextSize = 11,
+					TextSize = 10,
 					TextColor3 = T.White,
 					TextXAlignment = Enum.TextXAlignment.Left,
 					ZIndex = 22,
 					Parent = row
 				})
 				local CheckBox = Create("Frame", {
-					Size = UDim2.new(0, 15, 0, 15),
-					Position = UDim2.new(1, -22, 0.5, -7),
+					Size = UDim2.new(0, 13, 0, 13),
+					Position = UDim2.new(1, -18, 0.5, -6),
 					BackgroundColor3 = states[opt] and T.Dark5 or T.Dark3,
 					BackgroundTransparency = 0,
 					BorderSizePixel = 0,
@@ -1334,9 +1322,9 @@ function XenoFluentUI:Tab(config)
 				local CheckMark = Create("TextLabel", {
 					Size = UDim2.new(1, 0, 1, 0),
 					BackgroundTransparency = 1,
-					Text = "✓",
+					Text = "v",
 					Font = Enum.Font.GothamBold,
-					TextSize = 10,
+					TextSize = 8,
 					TextColor3 = T.White,
 					TextTransparency = states[opt] and 0 or 1,
 					ZIndex = 23,
@@ -1370,21 +1358,21 @@ function XenoFluentUI:Tab(config)
 					if config.Callback then config.Callback(states, sel) end
 				end)
 			end
-			DropList.Size = UDim2.new(0, 125, 0, DLL.AbsoluteContentSize.Y + 8)
+			DropList.Size = UDim2.new(0, 115, 0, DLL.AbsoluteContentSize.Y + 6)
 		end
 		DropBtn.MouseButton1Click:Connect(function()
 			open = not open
 			if open then
 				BuildOptions()
 				DropList.Visible = true
-				local h = DLL.AbsoluteContentSize.Y + 8
-				DropList.Size = UDim2.new(0, 125, 0, 0)
-				Tween(DropList, { Size = UDim2.new(0, 125, 0, h) }, 0.2, Enum.EasingStyle.Quart)
-				Arrow.Text = "▴"
+				local h = DLL.AbsoluteContentSize.Y + 6
+				DropList.Size = UDim2.new(0, 115, 0, 0)
+				Tween(DropList, { Size = UDim2.new(0, 115, 0, h) }, 0.18, Enum.EasingStyle.Quart)
+				Arrow.Text = "^"
 			else
-				Tween(DropList, { Size = UDim2.new(0, 125, 0, 0) }, 0.18)
-				task.delay(0.2, function() DropList.Visible = false end)
-				Arrow.Text = "▾"
+				Tween(DropList, { Size = UDim2.new(0, 115, 0, 0) }, 0.15)
+				task.delay(0.18, function() DropList.Visible = false end)
+				Arrow.Text = "v"
 			end
 		end)
 		local obj = {}
