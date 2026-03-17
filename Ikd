@@ -1,3 +1,4 @@
+
 local XenoFluentUI = {}
 XenoFluentUI.__index = XenoFluentUI
 
@@ -94,6 +95,7 @@ function XenoFluentUI.new(config)
 	})
 	self.Main = Main
 	Create("UICorner", { CornerRadius = UDim.new(0, 10), Parent = Main })
+	Create("UIStroke", { Color = T.White, Transparency = 0.7, Thickness = 1.5, Parent = Main })
 
 	local BG = Create("ImageLabel", {
 		Size = UDim2.new(1, 0, 1, 0),
@@ -302,7 +304,7 @@ function XenoFluentUI:Tab(config)
 		Parent = self.ContentArea
 	})
 	Create("UIPadding", { PaddingLeft = UDim.new(0, 12), PaddingRight = UDim.new(0, 12), PaddingTop = UDim.new(0, 10), PaddingBottom = UDim.new(0, 12), Parent = Page })
-	local LL = Create("UIListLayout", { SortOrder = Enum.SortOrder.LayoutOrder, Padding = UDim.new(0, 0), Parent = Page })
+	local LL = Create("UIListLayout", { SortOrder = Enum.SortOrder.LayoutOrder, Padding = UDim.new(0, 4), Parent = Page })
 	LL:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
 		Page.CanvasSize = UDim2.new(0, 0, 0, LL.AbsoluteContentSize.Y + 20)
 	end)
@@ -339,7 +341,7 @@ function XenoFluentUI:Tab(config)
 		local card = Create("Frame", {
 			Size = UDim2.new(1, 0, 0, h or 42),
 			BackgroundColor3 = T.Dark3,
-			BackgroundTransparency = 1,
+			BackgroundTransparency = 0.3,
 			BorderSizePixel = 0,
 			ZIndex = 4,
 			Parent = Page
@@ -397,8 +399,8 @@ function XenoFluentUI:Tab(config)
 		Create("UICorner", { CornerRadius = UDim.new(0, 6), Parent = ripple })
 
 		local CR = Create("TextButton", { Size = UDim2.new(1, 0, 1, 0), BackgroundTransparency = 1, Text = "", ZIndex = 7, Parent = card })
-		CR.MouseEnter:Connect(function() Tween(card, { BackgroundColor3 = T.Dark3, BackgroundTransparency = 0.6 }, 0.12) end)
-		CR.MouseLeave:Connect(function() Tween(card, { BackgroundColor3 = T.Dark3, BackgroundTransparency = 1 }, 0.12) end)
+		CR.MouseEnter:Connect(function() Tween(card, { BackgroundTransparency = 0.15 }, 0.12) end)
+		CR.MouseLeave:Connect(function() Tween(card, { BackgroundTransparency = 0.3 }, 0.12) end)
 		CR.MouseButton1Click:Connect(function()
 			ripple.Size = UDim2.new(0, 0, 0, 0)
 			ripple.BackgroundTransparency = 0.85
@@ -465,8 +467,8 @@ function XenoFluentUI:Tab(config)
 			end
 			if config.Callback then config.Callback(state) end
 		end)
-		CR.MouseEnter:Connect(function() Tween(card, { BackgroundColor3 = T.Dark3, BackgroundTransparency = 0.6 }, 0.12) end)
-		CR.MouseLeave:Connect(function() Tween(card, { BackgroundColor3 = T.Dark3, BackgroundTransparency = 1 }, 0.12) end)
+		CR.MouseEnter:Connect(function() Tween(card, { BackgroundTransparency = 0.15 }, 0.12) end)
+		CR.MouseLeave:Connect(function() Tween(card, { BackgroundTransparency = 0.3 }, 0.12) end)
 
 		local obj = {}
 		function obj:Set(val)
@@ -648,7 +650,7 @@ function XenoFluentUI:Tab(config)
 		card.ZIndex = 10
 
 		Create("TextLabel", {
-			Size = UDim2.new(1, -150, 1, 0),
+			Size = UDim2.new(0.5, 0, 1, 0),
 			Position = UDim2.new(0, 12, 0, 0),
 			BackgroundTransparency = 1,
 			Text = config.Title or "Select",
@@ -661,8 +663,8 @@ function XenoFluentUI:Tab(config)
 		})
 
 		local DropBtn = Create("TextButton", {
-			Size = UDim2.new(0, 125, 0, 27),
-			Position = UDim2.new(1, -135, 0.5, -13),
+			Size = UDim2.new(0, 120, 0, 27),
+			Position = UDim2.new(1, -130, 0.5, -13),
 			BackgroundColor3 = T.Dark4,
 			BackgroundTransparency = 0,
 			Text = "",
@@ -699,8 +701,8 @@ function XenoFluentUI:Tab(config)
 		})
 
 		local DropList = Create("Frame", {
-			Size = UDim2.new(0, 125, 0, 0),
-			Position = UDim2.new(1, -135, 1, 4),
+			Size = UDim2.new(0, 120, 0, 0),
+			Position = UDim2.new(1, -130, 1, 4),
 			BackgroundColor3 = T.Dark3,
 			BackgroundTransparency = 0,
 			BorderSizePixel = 0,
@@ -745,13 +747,13 @@ function XenoFluentUI:Tab(config)
 					SelLabel.Text = selected
 					BuildOptions()
 					open = false
-					Tween(DropList, { Size = UDim2.new(0, 125, 0, 0) }, 0.18)
+					Tween(DropList, { Size = UDim2.new(0, 120, 0, 0) }, 0.18)
 					task.delay(0.2, function() DropList.Visible = false end)
 					Arrow.Text = "▾"
 					if config.Callback then config.Callback(selected) end
 				end)
 			end
-			DropList.Size = UDim2.new(0, 125, 0, DLL.AbsoluteContentSize.Y + 8)
+			DropList.Size = UDim2.new(0, 120, 0, DLL.AbsoluteContentSize.Y + 8)
 		end
 
 		DropBtn.MouseButton1Click:Connect(function()
@@ -760,11 +762,11 @@ function XenoFluentUI:Tab(config)
 				BuildOptions()
 				DropList.Visible = true
 				local h = DLL.AbsoluteContentSize.Y + 8
-				DropList.Size = UDim2.new(0, 125, 0, 0)
-				Tween(DropList, { Size = UDim2.new(0, 125, 0, h) }, 0.2, Enum.EasingStyle.Quart)
+				DropList.Size = UDim2.new(0, 120, 0, 0)
+				Tween(DropList, { Size = UDim2.new(0, 120, 0, h) }, 0.2, Enum.EasingStyle.Quart)
 				Arrow.Text = "▴"
 			else
-				Tween(DropList, { Size = UDim2.new(0, 125, 0, 0) }, 0.18)
+				Tween(DropList, { Size = UDim2.new(0, 120, 0, 0) }, 0.18)
 				task.delay(0.2, function() DropList.Visible = false end)
 				Arrow.Text = "▾"
 			end
@@ -793,7 +795,7 @@ function XenoFluentUI:Tab(config)
 		card.ZIndex = 10
 
 		Create("TextLabel", {
-			Size = UDim2.new(1, -150, 1, 0),
+			Size = UDim2.new(0.5, 0, 1, 0),
 			Position = UDim2.new(0, 12, 0, 0),
 			BackgroundTransparency = 1,
 			Text = config.Title or "SelectToggle",
@@ -806,8 +808,8 @@ function XenoFluentUI:Tab(config)
 		})
 
 		local DropBtn = Create("TextButton", {
-			Size = UDim2.new(0, 125, 0, 27),
-			Position = UDim2.new(1, -135, 0.5, -13),
+			Size = UDim2.new(0, 120, 0, 27),
+			Position = UDim2.new(1, -130, 0.5, -13),
 			BackgroundColor3 = T.Dark4,
 			BackgroundTransparency = 0,
 			Text = "",
@@ -854,8 +856,8 @@ function XenoFluentUI:Tab(config)
 		})
 
 		local DropList = Create("Frame", {
-			Size = UDim2.new(0, 125, 0, 0),
-			Position = UDim2.new(1, -135, 1, 4),
+			Size = UDim2.new(0, 120, 0, 0),
+			Position = UDim2.new(1, -130, 1, 4),
 			BackgroundColor3 = T.Dark3,
 			BackgroundTransparency = 0,
 			BorderSizePixel = 0,
@@ -952,7 +954,7 @@ function XenoFluentUI:Tab(config)
 					if config.Callback then config.Callback(states, sel) end
 				end)
 			end
-			DropList.Size = UDim2.new(0, 125, 0, DLL.AbsoluteContentSize.Y + 8)
+			DropList.Size = UDim2.new(0, 120, 0, DLL.AbsoluteContentSize.Y + 8)
 		end
 
 		DropBtn.MouseButton1Click:Connect(function()
@@ -961,11 +963,11 @@ function XenoFluentUI:Tab(config)
 				BuildOptions()
 				DropList.Visible = true
 				local h = DLL.AbsoluteContentSize.Y + 8
-				DropList.Size = UDim2.new(0, 125, 0, 0)
-				Tween(DropList, { Size = UDim2.new(0, 125, 0, h) }, 0.2, Enum.EasingStyle.Quart)
+				DropList.Size = UDim2.new(0, 120, 0, 0)
+				Tween(DropList, { Size = UDim2.new(0, 120, 0, h) }, 0.2, Enum.EasingStyle.Quart)
 				Arrow.Text = "▴"
 			else
-				Tween(DropList, { Size = UDim2.new(0, 125, 0, 0) }, 0.18)
+				Tween(DropList, { Size = UDim2.new(0, 120, 0, 0) }, 0.18)
 				task.delay(0.2, function() DropList.Visible = false end)
 				Arrow.Text = "▾"
 			end
